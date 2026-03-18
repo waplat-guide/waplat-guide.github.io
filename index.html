@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>와플랫 공공 - 어르신 방문 안내 가이드</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'Malgun Gothic', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.container {
+  max-width: 420px;
+  width: 100%;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.subtitle {
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
+.card {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+.card:active { transform: scale(0.97); }
+.card-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+.card-desc { font-size: 0.95rem; color: #666; line-height: 1.5; }
+.card-ai { border-left: 5px solid #1565C0; }
+.card-basic { border-left: 5px solid #00695C; }
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.badge-ai { background: #1565C0; }
+.badge-basic { background: #00695C; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>와플랫 공공</h1>
+  <p class="subtitle">어르신 방문 안내 가이드</p>
+
+  <a href="waplat-guide-ai.html" class="card card-ai">
+    <div class="card-icon">🤖</div>
+    <span class="badge badge-ai">AI 포함</span>
+    <div class="card-title">AI 생활지원사 포함 버전</div>
+    <div class="card-desc">AI 대화, 건강 프로그램, 안부체크 등 AI 기능이 포함된 전체 가이드</div>
+  </a>
+
+  <a href="waplat-guide-basic.html" class="card card-basic">
+    <div class="card-icon">📱</div>
+    <span class="badge badge-basic">기본</span>
+    <div class="card-title">AI 생활지원사 미포함 버전</div>
+    <div class="card-desc">안부체크, 건강상담, 생활상담 등 기본 서비스 가이드</div>
+  </a>
+</div>
+</body>
+</html>
