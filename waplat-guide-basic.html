@@ -116,18 +116,27 @@
   .subsection { margin-top: 24px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,0.07); }
   .subsection:first-child { margin-top: 0; padding-top: 0; border-top: none; }
   .subsection-title {
-    font-size: 1rem; font-weight: 700; color: var(--primary);
-    margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    font-size: 1rem; font-weight: 700; color: var(--text);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+    padding-bottom: 10px; border-bottom: 1.5px solid var(--primary-light);
   }
-  .step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; position: relative; }
   .step-num {
     display: flex; align-items: center; justify-content: center;
     min-width: 34px; height: 34px; background: white; color: var(--primary);
     border: 2px solid var(--primary);
     border-radius: 50%; font-weight: 700; font-size: 0.88rem; flex-shrink: 0;
+    position: relative; z-index: 1;
   }
-  .step-content { flex: 1; font-size: 1rem; word-break: keep-all; padding-top: 5px; }
-  .step-content strong { color: var(--primary-dark); }
+  /* Step connector line */
+  .step:has(+ .step) .step-num::after {
+    content: ''; position: absolute;
+    top: 34px; left: 50%; transform: translateX(-50%);
+    width: 1.5px; height: 22px;
+    background: linear-gradient(to bottom, rgba(0,105,92,0.22), transparent);
+  }
+  .step-content { flex: 1; font-size: 1rem; word-break: keep-all; padding-top: 7px; line-height: 1.65; }
+  .step-content strong { color: var(--primary); font-weight: 700; }
   .yt-link {
     display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
     background: white; border-radius: 20px; margin: 8px 0 14px;
