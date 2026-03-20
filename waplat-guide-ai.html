@@ -611,12 +611,11 @@
   const backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => { backBtn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  // 마지막 동사(~니다.)가 혼자 다음 줄로 넘어가지 않도록 앞 공백을 non-breaking space로 교체
+  // 버튼명([...]) 바로 뒤 단어가 줄바꿈되지 않도록, 마지막 동사도 혼자 넘어가지 않도록 처리
   document.querySelectorAll('.step-content').forEach(el => {
-    el.innerHTML = el.innerHTML.replace(
-      /\s([가-힣]+니다\.)(\s*)$/,
-      '\u00A0$1$2'
-    );
+    el.innerHTML = el.innerHTML
+      .replace(/<\/strong> /g, '<\/strong>\u00A0')
+      .replace(/\s([가-힣]+니다\.)(\s*)$/, '\u00A0$1$2');
   });
 </script>
 </body>
