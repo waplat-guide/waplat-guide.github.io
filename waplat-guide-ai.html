@@ -217,6 +217,8 @@
     -webkit-tap-highlight-color: transparent; transition: background 0.2s;
   }
   .back-to-top:hover { background: var(--primary); }
+  /* 동작 동사 강조 — 스텝 끝의 ~니다. */
+  .step-content .action-verb { color: var(--text); font-weight: 700; }
   @media (min-width: 768px) { html { font-size: 17px; } }
   @media (max-width: 380px) { html { font-size: 16px; } .quick-nav a { font-size: 0.67rem; padding: 5px 7px; } }
   @media print { .header { position: static; } .quick-nav { display: none; } .section.collapsed .section-body { display: block; } .back-to-top { display: none !important; } }
@@ -615,6 +617,13 @@
   const backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => { backBtn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
   function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  // 스텝 끝 동작 동사 자동 강조: 엽니다 / 입력합니다 / 선택합니다 / 확인합니다 등
+  document.querySelectorAll('.step-content').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(
+      /(\s)([가-힣]+니다\.)(\s*)$/,
+      '$1<strong class="action-verb">$2</strong>$3'
+    );
+  });
 </script>
 </body>
 </html>
