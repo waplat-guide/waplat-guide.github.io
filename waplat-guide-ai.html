@@ -618,6 +618,7 @@
   // 버튼명([...]) 바로 뒤 단어가 줄바꿈되지 않도록, 마지막 동사도 혼자 넘어가지 않도록 처리
   document.querySelectorAll('.step-content').forEach(el => {
     el.innerHTML = el.innerHTML
+      .replace(/ <strong>/g, '\u00A0<strong>')
       .replace(/<\/strong> /g, '<\/strong>\u00A0')
       .replace(/\s([가-힣]+니다\.)(\s*)$/, '\u00A0$1$2');
   });
